@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         "cashfer-purple": "#644C99",
         "cashfer-light-purple": "#F8F6FB",
+        "cashfer-medium-purple": "#F4EDFF",
         "cashfer-dark": "#555555",
       },
       outline: {

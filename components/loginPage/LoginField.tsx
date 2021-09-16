@@ -83,7 +83,11 @@ const LoginField = () => {
 
       <div className="text-center text-sm text-gray-700 mt-4">
         Don’t have an account?{" "}
-        <span className="text-cashfer-purple">Sign Up</span>
+        <Link href="/register">
+          <a className="text-cashfer-purple">
+            <span className="">Sign Up</span>
+          </a>
+        </Link>
       </div>
     </div>
   );
