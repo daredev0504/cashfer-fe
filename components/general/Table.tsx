@@ -24,13 +24,13 @@ const Table: React.FunctionComponent<ITableProps> = ({
         {headerGroups.map((headerGroup) => (
           <tr className="text-left" {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <th className="p-4 bg-cashfer-medium-purple text-cashfer-dark text-sm" {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <th className="p-4 dark:bg-gray-700 dark:text-cashfer-medium-purple bg-cashfer-medium-purple text-cashfer-dark text-sm" {...column.getHeaderProps()}>{column.render("Header")}</th>
             ))}
           </tr>
         ))}
       </thead>
 
-      <tbody className="text-sm text-cashfer-dark" {...getTableBodyProps()}>
+      <tbody className="dark:text-gray-300 text-sm text-cashfer-dark" {...getTableBodyProps()}>
         {rows.map((row, i) => {
           prepareRow(row);
           return (

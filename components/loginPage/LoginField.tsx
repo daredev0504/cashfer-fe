@@ -6,7 +6,9 @@ const LoginField = () => {
     <div className="flex-col">
       <div className="w-10/12 lg:w-5/12 mx-auto">
         <div className="text-cashfer-purple py-16 text-2xl">Log In</div>
-        <div className="mb-12 font-medium text-gray-700">Welcome back</div>
+        <div className="mb-12 font-medium text-gray-700 dark:text-gray-300">
+          Welcome back
+        </div>
 
         <form action="">
           <div className="w-full mx-auto">
@@ -16,7 +18,7 @@ const LoginField = () => {
             <div className="">
               <input
                 className="w-full border pl-1 focus:outline-none focus:ring
-                focus:border-cashfer-purple focus-within:text-cashfer-purple mt-2 h-9"
+                focus:border-cashfer-purple focus-within:text-cashfer-purple mt-2 h-9 dark:focus-within:text-white"
                 type="text"
                 placeholder=""
               />
@@ -81,7 +83,7 @@ const LoginField = () => {
         </form>
       </div>
 
-      <div className="text-center text-sm text-gray-700 mt-4">
+      <div className="text-center text-sm text-gray-700 dark:text-gray-300 mt-4">
         Don’t have an account?{" "}
         <Link href="/register">
           <a className="text-cashfer-purple">

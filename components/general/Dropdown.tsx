@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import DarkModeToggle from "../../components/general/DarkModeToggle";
 
-const Dropdown = () => {
+
+const Dropdown = (props:any) => {
   const [show, setshow] = useState(false);
 
   function showDropdown() {
@@ -17,12 +19,7 @@ const Dropdown = () => {
 
   return (
     <div>
-      <button
-        onMouseEnter={() => showDropdown()}
-      
-        className=""
-        type="button"
-      >
+      <button onMouseOver={() => showDropdown()} className="" type="button">
         <div className="">
           <FontAwesomeIcon
             size="2x"
@@ -36,10 +33,10 @@ const Dropdown = () => {
         <div
           onMouseOver={() => showDropdown()}
           onMouseLeave={() => hideDropdown()}
-          className="absolute right-0 z-10 bg-white shadow-lg text-sm border rounded-lg py-2 text-gray-600 w-52"
+          className="dark:bg-gray-900 dark:text-white absolute right-0 z-10 bg-white shadow-lg text-sm rounded-lg py-2 text-gray-600 w-52"
         >
           <Link href="/login">
-            <a className="block px-4 py-2 hover:bg-cashfer-light-purple">
+            <a className="block px-4 py-3 dark:hover:bg-gray-800 hover:bg-cashfer-light-purple">
               <FontAwesomeIcon
                 size="1x"
                 color="#644c99"
@@ -50,19 +47,22 @@ const Dropdown = () => {
             </a>
           </Link>
           <Link href="/login">
-            <a className="block px-4 py-2 hover:bg-cashfer-light-purple">
+            <a className="block px-4 py-3 dark:hover:bg-gray-800 hover:bg-cashfer-light-purple">
               <FontAwesomeIcon
                 size="1x"
                 color="red"
                 stroke="5px"
                 icon={faPowerOff}
               ></FontAwesomeIcon>{" "}
-              <span className=""> &nbsp; Logout</span>
+              <span className=""> &nbsp;Logout</span>
             </a>
           </Link>
           <Link href="/login">
-            <a className="block px-4 py-2 hover:bg-cashfer-light-purple">
-              <span className="">Dark mode</span>
+            <a className="block px-4 py-3 dark:hover:bg-gray-800 hover:bg-cashfer-light-purple">
+              <span className="">Dark mode</span>{" "}
+              <span className="float-right">
+                <DarkModeToggle togglerr={props.toggler} />
+              </span>
             </a>
           </Link>
         </div>

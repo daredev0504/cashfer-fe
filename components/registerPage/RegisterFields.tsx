@@ -6,7 +6,7 @@ const RegisterFields = () => {
       <div className="flex-col">
         <div className="w-10/12 lg:w-full mx-auto">
           <div className="text-cashfer-purple py-8 text-2xl">Register</div>
-          <div className="mb-3 text-lg font-medium text-gray-700">
+          <div className="mb-3 text-lg font-medium text-gray-700 dark:text-gray-300">
             Just a few basic details about you
           </div>
           <div className="text-xs text-gray-400 mb-12">
@@ -146,7 +146,7 @@ const RegisterFields = () => {
           </form>
         </div>
 
-        <div className="text-sm text-gray-700 mt-4">
+        <div className="text-sm text-gray-700 dark:text-gray-300 mt-4">
           Already have an account?{" "}
           <Link href="/login">
             <a className="text-cashfer-purple">

@@ -14,8 +14,8 @@ const Tabs: React.FunctionComponent<TabsProps> = (props): any => {
   };
 
   return (
-    <div className="tabs w-11/12 m-4 rounded-2xl lg:w-3/5 bg-white mx-auto p-8">
-      <ol className="tab-list">
+    <div className="dark:bg-gray-800 tabs w-11/12 m-4 rounded-2xl lg:w-3/5 bg-white mx-auto p-4">
+      <ol className="tab-list border-b dark:border-gray-700 border-gray-200">
         {props.children.map((child) => {
           const { label } = child.props;
 

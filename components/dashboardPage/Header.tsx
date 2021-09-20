@@ -6,12 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "../general/Dropdown";
 
-const Header = () => {
+const Header = (props: any) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
   return (
     <div>
-      <nav className=" sticky top-0 px-2 lg:flex lg:items-center lg:justify-between lg:px-8 py-2 bg-white shadow-md">
+      <nav className="dark:bg-gray-900 px-2 lg:flex lg:items-center lg:justify-between lg:px-8 py-2 bg-white shadow-md">
         <div className="flex justify-between">
           <Image src="/cashfer logo.png" width="156" height="35" />
           <button
@@ -82,7 +82,7 @@ const Header = () => {
               </div>
 
               <div className="">
-                <Dropdown />
+                <Dropdown toggler = {props.toggler} />
               </div>
             </div>
           </div>

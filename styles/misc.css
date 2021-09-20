@@ -1,5 +1,4 @@
 .tab-list {
-  border-bottom: 1px solid rgb(236, 236, 236);
   margin-bottom: 2em;
   padding-left: 0;
 }
@@ -19,4 +18,13 @@
   color: white;
   border-radius: 10px;
   transition: all 300ms
+}
+
+.myshadow{
+box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+
+.activeLink{
+    background-color: red;
+    color: #fff;
 }
