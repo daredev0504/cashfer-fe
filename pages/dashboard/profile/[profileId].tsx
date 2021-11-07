@@ -1,19 +1,12 @@
 import * as React from "react";
 import Head from "next/head";
 import Tabs from "../../../components/general/Tabs";
-import Layout from "../../../components/dashboardPage/Layout";
 import ProfileDetails from "../../../components/profilePage/ProfileDetails";
 import FollowSideBar from "../../../components/profilePage/FollowSideBar";
-import { useTheme } from "next-themes";
 
 interface IProfileProps {}
 
 const Profile: React.FunctionComponent<IProfileProps> = (props): any => {
-   const { theme, setTheme } = useTheme();
-  const Toggle = () => {
-   
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
 
   return (
     <div>
@@ -24,7 +17,7 @@ const Profile: React.FunctionComponent<IProfileProps> = (props): any => {
       </Head>
       
       <div className="dark:bg-gray-900 bg-cashfer-light-purple">
-        <Layout toggle={Toggle}>
+       
           <div className="flex justify-between">
             <div className="flex-1">
               {" "}
@@ -46,7 +39,7 @@ const Profile: React.FunctionComponent<IProfileProps> = (props): any => {
               <FollowSideBar />
             </div>
           </div>
-        </Layout>
+      
       </div>
     </div>
   );

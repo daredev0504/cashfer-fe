@@ -1,13 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import the FontAwesomeIcon component
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-solid-svg-icons"; // import the icons you need
 import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "../general/Dropdown";
+import { userService } from "../../Services/userService";
+import {setAuthToken} from "../../Helpers/setAuthToken";
 
 const Header = (props: any) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const [name, setname] = useState("");
+  const [user, setuser] = useState(null);
+  const [image, setimage] = useState(null);
+  
+React.useEffect(() => {
+  setAuthToken(userService.userValue);
+}, []);
+ 
+  useEffect(() => {
+     let abortController = new AbortController();
+    const getUser = () => {
+      userService
+        .getUser()
+        .then((data) => {
+           console.log("&&&&&&&&&&&&&&&&&", data);
+          setuser(data.data);
+          setimage(data.data.avatarUrl);
+          setname(data.data.userName)
+        })
+        .catch(() => {
+          //userService.logout();
+        });
+    };
+   
+    getUser();
+   return () => {
+     abortController.abort();
+   };
+  }, []);
 
   return (
     <div>
@@ -29,9 +60,9 @@ const Header = (props: any) => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="3"
                     d="M4 6h16M4 12h8m-8 6h16"
                   />
                 </svg>
@@ -46,9 +77,9 @@ const Header = (props: any) => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
@@ -60,29 +91,29 @@ const Header = (props: any) => {
         <div className={navbarOpen ? "block" : "hidden lg:flex"}>
           <div className="block lg:flex lg:justify-between lg:items-center p-4 lg:p-2 lg:w-64 w-full">
             <div className="">
-              <Link href="#">
-                <FontAwesomeIcon
-                  size="2x"
-                  color="#644C99"
-                  icon={faBell}
-                ></FontAwesomeIcon>
+              <Link href={"/notification"}>
+                <div>
+                  {" "}
+                  <FontAwesomeIcon
+                    size="2x"
+                    color="#644C99"
+                    icon={faBell}
+                  ></FontAwesomeIcon>
+                </div>
               </Link>
             </div>
 
             <div className="lg:flex lg:items-center lg:justify-between w-36">
               <div className="border-2 border-cashfer-purple h-8 w-8 rounded-full overflow-hidden">
-                <img
-                  className="  w-full h-full object-cover"
-                  src="/chelsea.jpg"
-                />
+                <img className="  w-full h-full object-cover" src={image == null ? "https://cdn-icons-png.flaticon.com/512/149/149071.png":image} />
               </div>
 
               <div className="">
-                <span className="text-cashfer-purple">John Doe</span>
+                <span className="text-cashfer-purple">{name}</span>
               </div>
 
               <div className="">
-                <Dropdown toggler = {props.toggler} />
+                <Dropdown toggler={props.toggler} />
               </div>
             </div>
           </div>

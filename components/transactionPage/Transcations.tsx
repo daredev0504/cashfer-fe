@@ -6,7 +6,7 @@ const Transcations = () => {
 
 return (
   <>
-    <div className="w-full border">
+    <div className="w-full pt-8">
       {" "}
       <Tabs>
         <div label="All" className="w-full">

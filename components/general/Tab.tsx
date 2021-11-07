@@ -30,10 +30,3 @@ const Tab: React.FunctionComponent<ITabProps> = (props):any => {
 
 export default Tab;
 
-// background-color: #f9f6ff;
-//   margin-right: 1em;
-//   display: inline-block;
-//   list-style: none;
-//   color: #333333;
-//   margin-bottom: 10px;
-//   padding: 0.5rem 0.75rem;

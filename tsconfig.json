@@ -14,6 +14,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/dashboard/index.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/dashboard/index.tsx", "Requests/Auth/authContext.js", "Context/transaction/TransactionContext.tsx", "Context/transaction/TransactionState.ts"],
   "exclude": ["node_modules"]
 }

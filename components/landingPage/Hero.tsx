@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -11,9 +12,12 @@ const Hero = () => {
         different currencies, you can also upgrade to a premium plan for more
         access to what the platform can give you.
       </div>
-      <div className="hover:opacity-90 w-1/2 lg:w-1/5 p-4 rounded-lg mx-auto text-center mt-16 text-white bg-cashfer-purple">
-        <a onClick={()=>alert("this is the homepage")} href="">Start Cashferring</a>
+      <Link href="/login">
+
+      <div className="hover:opacity-90 w-1/2 lg:w-1/5 p-4 rounded-lg mx-auto text-center cursor-pointer mt-16 text-white bg-cashfer-purple">
+        <a>Start Cashferring</a>
       </div>
+      </Link>
     </div>
   );
 };

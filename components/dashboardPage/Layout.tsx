@@ -3,7 +3,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 
 interface ILayoutProps {
-    children: JSX.Element;
+    children: any;
     toggle:Function;
 }
 
@@ -19,7 +19,7 @@ const Layout: React.FunctionComponent<ILayoutProps> = (props):any => {
           {" "}
           <Sidebar />
         </div>
-        <div className="lg:w-4/5 mx-auto flex-1 border lg:ml-60">{props.children}</div>
+        <div className="lg:w-4/5 mx-auto flex-1 lg:ml-60">{props.children}</div>
       </div>
     </div>
   );

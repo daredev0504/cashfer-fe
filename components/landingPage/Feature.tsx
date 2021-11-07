@@ -10,7 +10,7 @@ const Feature = () => {
       <div className=" text-2xl text-cashfer-purple font-bold text-center">
         Why CashFer
       </div>
-      <div className="text-gray-400 text-center mt-2">
+      <div className="text-sm lg:text-base text-gray-400 text-center mt-2">
         Cashfer provides inciting features for your needs
       </div>
       <div className="dark:bg-gray-800 block text-center lg:gap-12 rounded-3xl mt-12 p-10 lg:w-9/12 lg:mx-auto lg:flex lg:justify-between lg:items-baseline bg-white">

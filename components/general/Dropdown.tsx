@@ -5,6 +5,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import DarkModeToggle from "../../components/general/DarkModeToggle";
+import { userService } from "../../Services/userService";
 
 
 const Dropdown = (props:any) => {
@@ -16,6 +17,9 @@ const Dropdown = (props:any) => {
   function hideDropdown() {
     setshow(false);
   }
+function logout(){
+userService.logout();
+}
 
   return (
     <div>
@@ -35,7 +39,7 @@ const Dropdown = (props:any) => {
           onMouseLeave={() => hideDropdown()}
           className="dark:bg-gray-900 dark:text-white absolute right-0 z-10 bg-white shadow-lg text-sm rounded-lg py-2 text-gray-600 w-52"
         >
-          <Link href="/login">
+          <Link href="/dashboard/profile">
             <a className="block px-4 py-3 dark:hover:bg-gray-800 hover:bg-cashfer-light-purple">
               <FontAwesomeIcon
                 size="1x"
@@ -46,7 +50,7 @@ const Dropdown = (props:any) => {
               <span className=""> &nbsp;Profile</span>
             </a>
           </Link>
-          <Link href="/login">
+          <div className="cursor-pointer" onClick={logout}>
             <a className="block px-4 py-3 dark:hover:bg-gray-800 hover:bg-cashfer-light-purple">
               <FontAwesomeIcon
                 size="1x"
@@ -56,15 +60,15 @@ const Dropdown = (props:any) => {
               ></FontAwesomeIcon>{" "}
               <span className=""> &nbsp;Logout</span>
             </a>
-          </Link>
-          <Link href="/login">
+          </div>
+          
             <a className="block px-4 py-3 dark:hover:bg-gray-800 hover:bg-cashfer-light-purple">
               <span className="">Dark mode</span>{" "}
               <span className="float-right">
                 <DarkModeToggle togglerr={props.toggler} />
               </span>
             </a>
-          </Link>
+          
         </div>
       ) : (
         ""

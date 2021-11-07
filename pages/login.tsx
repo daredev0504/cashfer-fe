@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import LoginIllustration from "../components/loginPage/LoginIllustration";
 import LoginField from "../components/loginPage/LoginField";
 import CancelToHome from "../components/general/CancelToHome";
+import { userService } from "../Services/userService";
+
 
 const login = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    // redirect to home if already logged in
+    if (userService.userValue) {
+      router.push("/dashboard");
+    }
+  });
+
   return (
     <div>
       <Head>
@@ -13,11 +25,11 @@ const login = () => {
         <link rel="icon" href="/cashfer favicon.svg" />
       </Head>
 
-      <div className="lg:flex lg:items-start">
+      <div className="lg:flex justify-between lg:items-start">
         <div className="hidden lg:block lg:w-4/12">
           <LoginIllustration />
         </div>
-        <div className="lg:w-6/12 mx-auto">
+        <div className="lg:w-3/12 mx-auto">
           <CancelToHome />
           <LoginField />
         </div>

@@ -16,13 +16,21 @@
     "@headlessui/react": "^1.4.1",
     "@microsoft/signalr": "^5.0.10",
     "@types/react-table": "^7.7.3",
+    "axios": "^0.21.4",
+    "formik": "^2.2.9",
     "next": "11.1.2",
+    "next-auth": "^3.29.0",
     "next-themes": "^0.0.15",
+    "node-fetch": "^3.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-google-button": "^0.7.2",
+    "react-google-login": "^5.2.2",
     "react-table": "^7.7.0",
     "react-tailwind-table": "^1.1.1",
-    "swr": "^1.0.1"
+    "rxjs": "^7.3.0",
+    "swr": "^1.0.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "17.0.20",

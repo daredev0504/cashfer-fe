@@ -6,7 +6,7 @@ interface IAppProps {
 const FollowSideBar: React.FunctionComponent<IAppProps> = (props):any => {
   return (
     <>
-      <div>
+      <div className="">
         {" "}
         <div>People to follow</div>
         <div>now</div>

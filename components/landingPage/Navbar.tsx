@@ -52,6 +52,7 @@ function Navbar() {
                   </a>
                 </Link>
               </li>
+            
             </ul>
           </div>
         </div>

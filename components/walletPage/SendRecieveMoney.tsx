@@ -16,19 +16,21 @@ const SendRecieveMoney = () => {
     setIsOpen(true);
   }
     return (
-      <div className="w-8/12 text-center mx-auto space-y-4 lg:space-y-0 lg:flex lg:w-10/12 mt-12 gap-8 lg:justify-end">
+      <div className="w-8/12 text-center mx-auto space-y-4 lg:space-y-0 lg:flex lg:w-10/12 pt-12 gap-8 lg:justify-end">
         <div>
           <AddMoney openModal={openModal} />
         </div>
         <div>
           <ReceiveMoney />
         </div>
-       
-        <MyModal
-          closeModal={closeModal}
-          isOpen={isOpen}
-          openModal={openModal}
-        />
+        <div>
+          {" "}
+          <MyModal
+            closeModal={closeModal}
+            isOpen={isOpen}
+            openModal={openModal}
+          />
+        </div>
       </div>
     );
 }
@@ -65,5 +67,6 @@ const ReceiveMoney = () => {
     </div>
   );
 };
+
 
 
