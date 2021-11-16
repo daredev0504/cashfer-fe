@@ -10,16 +10,13 @@ import type { AppProps } from "next/app";
 import { userService } from "../Services/userService";
 import { Alert } from "../components/general/Alerts";
 import Layout from "../components/dashboardPage/Layout";
-import { useTheme } from "next-themes";
 
-//axios.defaults.headers.common = { Authorization: `Bearer ${userService.userValue.data.accessToken}` };
-// console.log(userService.userValue);
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [authorized, setAuthorized] = useState(false);
-  const { theme, setTheme } = useTheme();
+  
 
   const publicPaths = [
     "/login",
@@ -28,10 +25,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     "/forgotPassword",
     "/resetPassword",
   ];
-
-  const Toggle = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
 
   useEffect(() => {
     // on initial load - run auth check
@@ -79,11 +72,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       {publicPaths.includes(router.pathname) == true ? (
         <Component {...pageProps} />
       ) : (
-        <Layout toggle={Toggle}>
+        <Layout>
           {authorized && <Component {...pageProps} />}
         </Layout>
       )}
-      
     </ThemeProvider>
   );
 }

@@ -9,10 +9,10 @@ import { walletService } from "../../Services/walletService";
 import { transactionService } from "../../Services/transactionService";
 import CreateTransactionState from "../../Context/transaction/TransactionState";
 import CreateWalletState from "../../Context/wallet/WalletState";
+import TestDarkModeToggle from "../../components/general/TestDarkModeToggle";
 
 const Index = () => {
-  const [wallets, setwallets] = useState([]);
-  const [walletId, setwalletId] = useState("");
+  const [wallets, setwallets] = useState({});
   const [transactionResponse, setTransactionResponse] = useState([]);
  
   console.log("@@@@@@@@@@@@@@@@@@@@@", transactionResponse);
@@ -30,9 +30,7 @@ const Index = () => {
         .then((data) => {
           console.log("*********************", data);
           // get return url from query parameters or default to '/'
-          setwallets(data);
-          setwalletId(data[0].id);
-          console.log("((((((((((((((((((", walletId);
+          setwallets(data)
           console.log(data);
         })
         .catch(() => {
@@ -61,6 +59,7 @@ const Index = () => {
             <div>
               <SendRecieveMoney />
               <WalletBalance wallets={wallets} />
+           
               {/* <div>{walletId}</div> */}
               <div className="">
                 <TableList />

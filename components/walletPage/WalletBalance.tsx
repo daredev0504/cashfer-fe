@@ -7,16 +7,16 @@ import { alertService } from "../../Services/alertService";
 import { userService } from "../../Services/userService";
 
 const WalletBalance = (props: any) => {
-  const [wallets, setwallets] = useState([]);
+  console.log(props.wallets.currencyCode);
+  const { currencyCode } = props.wallets;
 
-    const mapWallets = props.wallets.map((wallet: any) => {
-     const formatter = new Intl.NumberFormat("en-US", {
-       style: "currency",
-       currency: `${wallet.currencyCode}`,
-       minimumFractionDigits: 2,
-     });
-    return <span key={wallet.id}>{formatter.format(wallet.balance)}</span>;
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: 'Ngn',
+    minimumFractionDigits: 2,
   });
+
+  
 
   return (
     <>
@@ -40,8 +40,9 @@ const WalletBalance = (props: any) => {
             </Link>
           </div>
           <div className="text-4xl text-center lg:text-left lg:text-5xl text-cashfer-purple font-medium">
-            {mapWallets}
+            {formatter.format(props.wallets.fiatBalance)}
           </div>
+          <div className=" mt-4 lg:text-left">Total Points - <span className="text-2xl text-cashfer-purple">{props.wallets.pointBalance}</span></div>
         </div>
       </div>
     </>

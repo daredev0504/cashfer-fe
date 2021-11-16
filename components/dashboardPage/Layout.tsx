@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 
 interface ILayoutProps {
     children: any;
-    toggle:Function;
+    
 }
 
 const Layout: React.FunctionComponent<ILayoutProps> = (props):any => {
@@ -12,7 +12,7 @@ const Layout: React.FunctionComponent<ILayoutProps> = (props):any => {
     <div className="">
       <div className="sticky z-10 top-0 ">
         {" "}
-        <Header toggler={props.toggle} />
+        <Header />
       </div>
       <div className="lg:flex">
         <div className="">

@@ -6,9 +6,9 @@ import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import DarkModeToggle from "../../components/general/DarkModeToggle";
 import { userService } from "../../Services/userService";
+import TestDarkModeToggle from "./TestDarkModeToggle";
 
-
-const Dropdown = (props:any) => {
+const Dropdown = (props: any) => {
   const [show, setshow] = useState(false);
 
   function showDropdown() {
@@ -17,9 +17,9 @@ const Dropdown = (props:any) => {
   function hideDropdown() {
     setshow(false);
   }
-function logout(){
-userService.logout();
-}
+  function logout() {
+    userService.logout();
+  }
 
   return (
     <div>
@@ -61,14 +61,9 @@ userService.logout();
               <span className=""> &nbsp;Logout</span>
             </a>
           </div>
-          
-            <a className="block px-4 py-3 dark:hover:bg-gray-800 hover:bg-cashfer-light-purple">
-              <span className="">Dark mode</span>{" "}
-              <span className="float-right">
-                <DarkModeToggle togglerr={props.toggler} />
-              </span>
-            </a>
-          
+          <div className="float-left w-full block px-4 py-3 dark:hover:bg-gray-800 hover:bg-cashfer-light-purple">
+            <TestDarkModeToggle />
+          </div>
         </div>
       ) : (
         ""

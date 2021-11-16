@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTable } from "react-table";
 import useLocalStorage from "../../Helpers/customHooks";
+import { userService } from "../../Services/userService";
 import Loader from "./Loader";
 
 interface ITableProps {
@@ -21,61 +22,69 @@ const Table: React.FunctionComponent<ITableProps> = ({
   const [isLoading, setisLoading] = useState(true);
   console.log("!!!!!!!!!!!!!!!!!!", data);
 
-    useEffect(() => {
-      if (data.length > 0) {
-        setisLoading(false);
-      }
-    }, [data])
-    
+  useEffect(() => {
+    if (data.length > 0) {
+      setisLoading(false);
+    } else {
+      userService.logout();
+    }
+  }, [data]);
 
   // Render the UI for your table
-  return (
-    <div>
-      {" "}
-      {isLoading === true ? (
-        <div>
-          <Loader />
-        </div>
-      ) : (
-        <table className="w-full" {...getTableProps()} border="1">
-          <thead className="">
-            {headerGroups.map((headerGroup) => (
-              <tr className="text-left" {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th
-                    className="p-4 dark:bg-gray-700 dark:text-cashfer-medium-purple bg-cashfer-medium-purple text-cashfer-dark text-sm"
-                    {...column.getHeaderProps()}
-                  >
-                    {column.render("Header")}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
 
-          <tbody
-            className="dark:text-gray-300 text-sm text-cashfer-dark"
-            {...getTableBodyProps()}
-          >
-            {rows.map((row, i) => {
-              prepareRow(row);
-              return (
-                <tr className="" {...row.getRowProps()}>
-                  {row.cells.map((cell) => {
-                    return (
-                      <td className=" text-left p-5" {...cell.getCellProps()}>
-                        {cell.render("Cell")}
-                      </td>
-                    );
-                  })}
+  try {
+    return (
+      <div>
+        {" "}
+        {isLoading === true ? (
+          <div>
+            <Loader />
+          </div>
+        ) : (
+          <table className="w-full" {...getTableProps()} border="1">
+            <thead className="">
+              {headerGroups.map((headerGroup) => (
+                <tr
+                  className="text-left"
+                  {...headerGroup.getHeaderGroupProps()}
+                >
+                  {headerGroup.headers.map((column) => (
+                    <th
+                      className="p-4 dark:bg-gray-700 dark:text-cashfer-medium-purple bg-cashfer-medium-purple text-cashfer-dark text-sm"
+                      {...column.getHeaderProps()}
+                    >
+                      {column.render("Header")}
+                    </th>
+                  ))}
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      )}
-    </div>
-  );
-};
+              ))}
+            </thead>
 
+            <tbody
+              className="dark:text-gray-300 text-sm text-cashfer-dark"
+              {...getTableBodyProps()}
+            >
+              {rows.map((row, i) => {
+                prepareRow(row);
+                return (
+                  <tr className="" {...row.getRowProps()}>
+                    {row.cells.map((cell) => {
+                      return (
+                        <td className=" text-left p-5" {...cell.getCellProps()}>
+                          {cell.render("Cell")}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </div>
+    );
+  } catch (error) {
+    return <div>an error occured</div>
+  }
+};
 export default Table;

@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Table from "./Table";
 import { useMemo } from "react";
-import { getData } from "../../data";
-import useLocalStorage from "../../Helpers/customHooks";
-import Loader from "./Loader";
 import TransactionContext from "../../Context/transaction/TransactionContext";
 
 const TableList = (props: any) => {
@@ -13,6 +10,7 @@ const TableList = (props: any) => {
 
   useEffect(() => {
    setdata(context.data)
+   
     return () => {
      setdata([])
     }

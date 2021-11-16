@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext } from "react";
 
 interface ITransactionContextInterface {
   data: any[];

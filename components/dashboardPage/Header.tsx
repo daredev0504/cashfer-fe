@@ -113,7 +113,7 @@ React.useEffect(() => {
               </div>
 
               <div className="">
-                <Dropdown toggler={props.toggler} />
+                <Dropdown />
               </div>
             </div>
           </div>

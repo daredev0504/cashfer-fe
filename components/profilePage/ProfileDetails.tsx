@@ -36,7 +36,7 @@ const ProfileDetails: React.FunctionComponent<IProfileDetailsProps> = (
 
   return (
     <div className="">
-      <div className="dark:bg-gray-800 w-11/12 mt-4 lg:mt-16 rounded-2xl lg:w-3/5 bg-white mx-auto p-8">
+      <div className="dark:bg-gray-800 w-11/12 mt-4 lg:mt-16 rounded-2xl lg:w-3/5 bg-white mx-auto p-8 mb-8">
         <div className="h-16 w-16 mx-auto lg:mx-0 border-2 border-cashfer-purple lg:h-32 lg:w-32 rounded-full overflow-hidden ">
           <img className="  w-full h-full object-cover" src={user.avatarUrl == null ? "https://cdn-icons-png.flaticon.com/512/149/149071.png":user.avatarUrl} />
         </div>

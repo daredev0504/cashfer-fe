@@ -14,10 +14,10 @@ export const walletService = {
 };
 
 function getMyWallet() {
-  return fetchWrapper.get(`${baseUrl}/Wallet/GetAllMyWallets`)
-     .then((data) => {
-       return data.data.data;
-     });
+  return fetchWrapper.get(`${baseUrl}/Wallet/getMyMainWalletsDetails`).then((data) => {
+    
+    return data;
+  });
 }
 
 function fundMyWallet(fundingData: any) {
